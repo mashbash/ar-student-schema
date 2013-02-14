@@ -17,5 +17,5 @@ class CreateStudents < ActiveRecord::Migration
     #can create many tables in here
 
     # HINT: checkout ActiveRecord::Migration.create_table
-  end
+
 end
