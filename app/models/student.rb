@@ -3,7 +3,7 @@ require_relative '../../db/config'
 # implement your Student model here
 class Student < ActiveRecord::Base
 
-  belongs_to :teacher
+  belongs_to :tea
 
   validates :age, :numericality => {:greater_than => 4}
   validates :email, :uniqueness => true, :format => {
