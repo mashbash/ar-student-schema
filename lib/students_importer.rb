@@ -11,6 +11,7 @@ module StudentsImporter
         else
           attribute_hash = Hash[field_names.zip(data)]
           student = Student.create!(attribute_hash)
+          student.update_attribute(:teacher_id, (student.id.to_i%9)+1)
         end
       end
     end
