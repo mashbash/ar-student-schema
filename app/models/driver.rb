@@ -34,11 +34,11 @@ Teacher.create(:first_name => "Ramon", :last_name => "Jumper", :email=> 'ramon@j
 
 ## Polpulating the new table Student Teachers
 
-Student.all.each do |student|
-  num = (1..Teacher.all.size).to_a.shuffle
-  3.times do
-    StudentTeacher.create(:student_id => student.id, :teacher_id => num.pop)
-  end
-end
+# Student.all.each do |student|
+#   num = (1..Teacher.all.size).to_a.shuffle
+#   3.times do
+#     StudentTeacher.create(:student_id => student.id, :teacher_id => num.pop)
+#   end
+# end
 
 
