@@ -12,18 +12,8 @@ Teacher.create(:first_name => "Bob", :last_name => "Hope", :email=> 'bob@hope.co
 Teacher.create(:first_name => "Chris", :last_name => "Hunter", :email=> 'chris@hunter.com', :phone=> '777-777-7777')
 Teacher.create(:first_name => "Angel", :last_name => "Kasey", :email=> 'angel@kasey.com', :phone=> '888-888-8888')
 Teacher.create(:first_name => "Ramon", :last_name => "Jumper", :email=> 'ramon@jumper.com', :phone=> '999-999-9999')
-# puts 'hello'
-# Teacher.update(8, :email => 'chris@hunter.com')
-# Teacher.update(8, :phone => '000-000-0000')
-#.update(:email => 'chris@hunter.com')
-# p Teacher.where(:first_name => 'Angel').class
-
-# puts my_teacher = Teacher.where(:first_name => "Angel").class
-# my_teacher.update(:phone, '000-000-0000')
-# my_teacher.save!
 
 
-# .update_attribute(:phone, "000-000-0000")
 # my_teacher = Teacher.where(:first_name => "Angel").first.update_attribute(:email, "angel@kasey.com")
 
 # my_teacher.phone => "123"
@@ -31,6 +21,13 @@ Teacher.create(:first_name => "Ramon", :last_name => "Jumper", :email=> 'ramon@j
 # update_attributes(:phone => '000-000-0000')
 
 # Teacher.select(* from teachers where email in (email))
-# Teacher.select("")
-# t = Teacher.select("email, count(email) as quantity").group(:email).having("quantity > 1")
-# puts t.inspect
+
+# Teacher.select("email, count(email) as quantity").group(:email).having("quantity > 1")
+
+
+# Code that will give all the students with teacher_id 1
+p Student.select([:first_name, :last_name]).where(:teacher_id => 1)
+
+# Code that will give the id of his/her teacher
+p Student.select(:teacher_id).where(:first_name => 'Jeff')
+
