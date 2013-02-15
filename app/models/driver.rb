@@ -1,6 +1,7 @@
 require_relative '../../db/config'
 require_relative 'teacher.rb'
 require_relative 'student.rb'
+require_relative 'student_teacher.rb'
 
 ## Driver code
 Teacher.create(:first_name => 'Nigel', :last_name => 'Nakano', :email=> 'nigel@nakano.com', :phone=> '111-111-1111')
@@ -26,8 +27,18 @@ Teacher.create(:first_name => "Ramon", :last_name => "Jumper", :email=> 'ramon@j
 
 
 # Code that will give all the students with teacher_id 1
-p Student.select([:first_name, :last_name]).where(:teacher_id => 1)
+# p Student.select([:first_name, :last_name]).where(:teacher_id => 1)
 
-# Code that will give the id of his/her teacher
-p Student.select(:teacher_id).where(:first_name => 'Jeff')
+# # Code that will give the id of his/her teacher
+# p Student.select(:teacher_id).where(:first_name => 'Jeff')
+
+## Polpulating the new table Student Teachers
+
+Student.all.each do |student|
+  num = (1..Teacher.all.size).to_a.shuffle
+  3.times do
+    StudentTeacher.create(:student_id => student.id, :teacher_id => num.pop)
+  end
+end
+
 

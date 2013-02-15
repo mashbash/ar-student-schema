@@ -13,7 +13,6 @@ class CreateStudents < ActiveRecord::Migration
       table.column :birthday, :date
       table.column :email, :string
       table.column :phone, :string
-      table.column :teacher_id, :integer
     end
 
     #can create many tables in here
