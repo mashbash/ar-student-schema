@@ -41,4 +41,9 @@ Teacher.create(:first_name => "Ramon", :last_name => "Jumper", :email=> 'ramon@j
 #   end
 # end
 
+teachers = Teacher.joins(:student_teachers => :student).where('students.id' => 1)#.to_sql
+p teachers.count
+
+students = Student.joins(:student_teachers => :teacher).where('teachers.id' => 1)#.to_sql
+p students.size
 
